@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reCAPTCHA Example</title>
+    <style>
+        /* Example CSS to style the reCAPTCHA widget */
+        .g-recaptcha {
+            margin: 10px 0;
+        }
+    </style>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        function onSubmit(token) {
+            // Do something when the form is submitted
+            console.log('Form submitted with reCAPTCHA token:', token);
+            // Here you can proceed with form submission or any other action
+            // For example, you can use AJAX to submit the form data to your server
+            // and handle the server-side validation there.
+        }
+    </script>
+</head>
+<body>
+    <h1>reCAPTCHA Example</h1>
+    <form action="/submit-form" method="POST" onsubmit="onSubmit(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <div class="g-recaptcha" data-sitekey="6Lej2LcpAAAAACpf8XyheBKmztHN0cV8SxDI8NcP" data-callback="onSubmit"></div>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
